@@ -1,0 +1,43 @@
+
+name: logstreaming
+version: 1.0
+description: |
+    AWS Elastic Beanstalk Log Streaming Addon.
+
+hooks:        
+    CMD-PreInit:
+        before:
+            - name: InstallCWLAgent
+              type: addon-hook
+              value: install
+
+    CMD-Startup:
+        before:
+            - name: ConfigCWLAgent
+              type: addon-hook
+              value: config
+
+    CMD-SelfStartup:
+        before:
+            - name: ConfigCWLAgent
+              type: addon-hook
+              value: config
+
+    CMD-AppDeploy:
+        before:
+            - name: ConfigCWLAgent
+              type: addon-hook
+              value: config
+
+    CMD-ConfigDeploy:
+        before:
+            - name: ConfigCWLAgent
+              type: addon-hook
+              value: config
+
+    CMD-RestartAppServer:
+        before:
+            - name: ConfigCWLAgent
+              type: addon-hook
+              value: config
+
